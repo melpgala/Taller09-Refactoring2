@@ -46,7 +46,7 @@ public class RecetaMedica {
         return medicamentos;
     }
 
-    public void setMedicamentos(List<String> medicamentos) {
-        this.medicamentos = medicamentos;
+    public void eliminarMedicamento(String medicamento) {
+        medicamentos.remove(medicamento);
     }
 }

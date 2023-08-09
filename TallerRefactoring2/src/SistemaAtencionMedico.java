@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaAtencionMedico {
-    private List<Paciente> pacientes;
+    private static final double DESCUENTO_ADULTO_MAYOR = 0.25;
+	private List<Paciente> pacientes;
     private List<Medico> medicos;
     private List<ServicioMedico> serviciosMedicos;
 
@@ -32,12 +33,13 @@ public class SistemaAtencionMedico {
         paciente.historialMedico.getConsultas().add(consulta); //Hacer esto es incorrecto
     }
 
+    
     public double calcularValorFinalConsulta(double costoConsulta, int edadPaciente){
         double valorARestar = 0;
-        if(edadPaciente>=65){
-            valorARestar = costoConsulta*0.25; //0.25 es el descuento para adultos mayores
+        if(edadPaciente >= 65){
+            valorARestar = costoConsulta * DESCUENTO_ADULTO_MAYOR;
         }
-        return costoConsulta-valorARestar;
+        return costoConsulta - valorARestar;
     }
 
     // se puede parametrizar (obtener...)
