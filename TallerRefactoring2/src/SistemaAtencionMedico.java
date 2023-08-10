@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaAtencionMedico {
-    private List<Paciente> pacientes;
+    private static final double DESCUENTO_ADULTO_MAYOR = 0.25;
+	private List<Paciente> pacientes;
     private List<Medico> medicos;
     private List<ServicioMedico> serviciosMedicos;
     static final double DESCUENTO_ADULTO_MAYOR  = 0.25;
@@ -35,6 +36,7 @@ public class SistemaAtencionMedico {
         
     }
 
+<<<<<<< HEAD
     public double calcularValorFinalConsulta(double costoConsulta, int edadPaciente){ 
 
         double valorARestar = 0; 
@@ -48,6 +50,16 @@ public class SistemaAtencionMedico {
         return costoConsulta - valorARestar; 
 
     } 
+=======
+    
+    public double calcularValorFinalConsulta(double costoConsulta, int edadPaciente){
+        double valorARestar = 0;
+        if(edadPaciente >= 65){
+            valorARestar = costoConsulta * DESCUENTO_ADULTO_MAYOR;
+        }
+        return costoConsulta - valorARestar;
+    }
+>>>>>>> c80c620f84c3670889c782ef9efb1e72f75dc33a
 
     // se puede parametrizar (obtener...)
     public Paciente obtenerPaciente(Predicate<Paciente> criterio) {
