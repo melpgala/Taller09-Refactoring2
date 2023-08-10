@@ -8,8 +8,8 @@ public class ServicioMedico {
         this.nombre = nombre;
         this.descripcion = descripcion;
         // Ojo que las dos asignaciones de abajo deben de tener logica de validacion en el setter, esos valores no pueden ser negativos
-        this.costo = costo;
-        this.duracion = duracion;
+        setCosto(costo);
+        setDuracion( duracion);
     }
 
     public String getNombre() {
@@ -45,7 +45,11 @@ public class ServicioMedico {
     }
 
     public void setDuracion(int duracion) {
-
+        if(duracion<0){
+            System.out.println("El costo no puede ser menor a 0");
+            return;
+        }
+        
         this.duracion = duracion;
     }
 }

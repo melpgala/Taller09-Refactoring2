@@ -5,7 +5,7 @@ public class RecetaMedica {
     private LocalDateTime fechaHora;
     private Paciente paciente;
     private Medico medico;
-    private List<String> medicamentos;
+    private List<String> medicamentos=new ArrayList<>();
 
     public RecetaMedica(LocalDateTime fechaHora, Paciente paciente, Medico medico, List<String> medicamentos) {
         this.fechaHora = fechaHora;
@@ -48,5 +48,15 @@ public class RecetaMedica {
 
     public void setMedicamentos(List<String> medicamentos) {
         this.medicamentos = medicamentos;
+    }
+    public List<String> getMedicamentos() {
+        return Collections.unmodifiableCollection(medicamentos);
+    }
+
+    public void añadirRecetas(RecetaMedica receta) {
+        recetasMedicas.add(receta);
+    }
+    public void eliminarRecetas(RecetaMedica receta) {
+        recetasMedicas.remove(receta);
     }
 }

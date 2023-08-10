@@ -11,7 +11,7 @@ public class Consulta {
     private boolean realizada;
     private String diagnostico;
     private String tratamiento;
-    private List<String> examenesMedicos;
+    private List<String> examenesMedicos=new ArrayList<>();
 
     public Consulta(int dia, int mes, int año, String hora, Paciente paciente, Medico medico, ServicioMedico servicioMedico, String diagnostico, String tratamiento, List<String> examenesMedicos) {
         this.dia = dia;
@@ -73,11 +73,14 @@ public class Consulta {
     }
 
     public List<String> getExamenesMedicos() {
-        return examenesMedicos;
+        return Collections.unmodifiableCollection(examenesMedicos);
     }
 
-    public void setExamenesMedicos(List<String> examenesMedicos) {
-        this.examenesMedicos = examenesMedicos;
+    public void añadirExamen(String examen) {
+        examenesMedicos.add(examen);
+    }
+    public void eliminarExamen(String examen) {
+        examenesMedicos.remove(examen);
     }
 
     public ServicioMedico getServicioMedico() {
